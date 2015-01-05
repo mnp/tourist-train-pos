@@ -1,0 +1,4 @@
+<?php
+
+// Quick, simple reservation
+?>

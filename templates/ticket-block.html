@@ -1,0 +1,52 @@
+<script type="text/javascript">
+<!--
+  function diff(z,a,b) {
+    var aval = document.TrainAccounting.elements[a].value;
+    var bval = document.TrainAccounting.elements[b].value;
+    if (aval && bval) {
+	document.TrainAccounting.elements[z].value = bval - aval;
+	if (aval <= bval) {
+            document.TrainAccounting.elements[z].style['background'] = 'white';
+	}
+        else {
+            document.TrainAccounting.elements[z].style['background'] = 'orange';
+        }
+    }
+  }
+//-->
+</script>
+
+<table class="item1" cellspacing="1" cellpadding="6" style="background: black">
+	<tr class="item" >
+	  <th>Ticket Numbers</th>
+	  <th align="right">Begin #</th>
+	  <th align="right">End #</th>
+	  <th align="right">Count</th>
+	</tr>
+	<tr class="item" >
+	  <th align="right">Adult</th>
+	  <td align="right">{adultBegTix:h}</td>
+	  <td align="right">{adultEndTix:h}</td>
+	  <td align="right">{adultCntTix:h}</td>
+	</tr>
+	<tr class="item" >
+	  <th align="right">Child</th>
+	  <td align="right">{childBegTix:h}</td>
+	  <td align="right">{childEndTix:h}</td>
+	  <td align="right">{childCntTix:h}</td>
+	</tr>
+	{if:showgroup}
+	<tr class="item" >
+	  <th align="right">Group</th>
+	  <td align="right">{groupBegTix:h}</td>
+	  <td align="right">{groupEndTix:h}</td>
+	  <td align="right">{groupCntTix:h}</td>
+	</tr>
+	{end:}
+	<tr class="item" >
+	  <th align="right">L/C/S</th>
+	  <td align="right">{lcsBegTix:h}</td>
+	  <td align="right">{lcsEndTix:h}</td>
+	  <td align="right">{lcsCntTix:h}</td>
+	</tr>
+</table>

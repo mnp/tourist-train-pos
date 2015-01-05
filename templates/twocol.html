@@ -1,0 +1,21 @@
+<table border="0" cellpadding="3" cellspacing="0" align="left">
+    {if:table_title}
+    <tr>
+	<td colspan=2 align="center" class="header">
+	  {table_title:h}
+	</td>
+    </tr>
+    {end:}
+    
+    <tr foreach="items,key,value">
+      <td class="light" valign="top" align="right">
+	<b>{key:h}</b>
+	<br><br>
+      </td>
+      <td valign="top">
+	{value:h}
+	<br><br>
+      </td>
+    </tr>
+</table>
+

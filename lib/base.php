@@ -1,0 +1,76 @@
+<?php
+/*
+ * Base code - included by everything.  Performs auth and exits if unhappy.
+ * loads config setup.
+ */
+
+require_once 'baseDefs.php';
+
+//error_reporting($conf['debug_level']);
+//set_time_limit($conf['max_exec_time']);
+
+// PEAR error handling
+require_once 'PEAR.php';
+PEAR::setErrorHandling(PEAR_ERROR_CALLBACK, "error_callback");
+
+// set the umask according to config settings
+//if (isset($conf['umask'])) {
+//    umask($conf['umask']);
+//}
+
+require_once 'MNP.php';
+require_once 'MNPDataObject.php';
+require_once 'MNPDataObject.php';
+require_once 'DB/DataObject.php';
+require_once 'Permissions.php';
+require_once 'TTrain.php';
+require_once 'TStation.php';
+
+//
+// Init DataObjects.  TODO: Can this take an existing connection?
+//
+$config = parse_ini_file(DB_OBJECTS_CONFIG, TRUE);
+foreach($config as $class=>$values) {
+  $options = &PEAR::getStaticProperty($class,'options');
+  $options = $values;
+}
+
+// Redirect the user to the login page if they haven't authenticated.
+// If this include returns, it means we're running.
+include 'MnpAuth.php';
+
+// User's default station.
+$today            = date('Y-m-d');
+$tomorrow         = date('Y-m-d', time() + DAY_SECS);
+$current_season   = MNP::getCurrentSeason();
+$nextTrain 	  = DataObjects_TTrain::nextDeparture();
+$timeNow 	  = date('h:i a');
+
+// Field tabbing.  Reset with MNP::resetTabIndex.
+$tabindex = 1;
+
+// Next departure.  FIXME: also for the session?  No. Maybe they'll have
+// midnight runs some day.
+if ($nextTrain->date == $today) 
+{
+  $nextTrain->_tSchedRun_id->getLinks();
+  $nextDepartureTime = $nextTrain->_tSchedRun_id->_tTime_id->runTime;
+  $releaseTime = date('h:i a', strtotime($nextDepartureTime) - 60 * 15);
+  $nextDepartureTime = $nextTrain->_tSchedRun_id->_tTime_id->toString();
+}
+else 
+{
+  $nextDepartureTime = $nextTrain->date;
+  $releaseTime 	     = $nextTrain->date;
+}
+
+// ------------------------------------------------------------------
+
+function error_callback($e)
+{
+  // Ignore some.  TODO: try PEAR::expectError ?
+  if ($e->code == DB_DATAOBJECT_ERROR_NODATA) return;
+  MNP::okay($e, get_class($e));
+}
+
+?>

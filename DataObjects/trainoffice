@@ -1,0 +1,18 @@
+
+    Database Consistency Check
+
+This WILL take a while. Timeout set to 2 minutes.
+train 6 has 7 reserved (5,1,1,,), but 6 found from reservations:
+42(1,,,,) 44(1,,,,) 73(2,1,1,,)
+train 17 has 6 reserved (6,,,,), but 3 found from reservations: 37(3,,,,)
+train 57 has 7 reserved (5,1,1,,), but 6 found from reservations:
+42(1,,,,) 44(1,,,,) 73(2,1,1,,)
+train 723 has 14 reserved (14,,,,), but 6 found from reservations:
+17(6,,,,)
+train 765 has 14 reserved (14,,,,), but 6 found from reservations:
+17(6,,,,)
+part 1: 5 failures
+part 2: 0 failures
+trains: 870
+reservations: 73
+this took 5s

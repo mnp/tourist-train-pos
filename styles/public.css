@@ -1,0 +1,23 @@
+body {
+  background-color:#330000;
+  color:white;
+}
+
+a:link    { color:#DCD152; }
+a:visited { color:#ffffff; }
+
+.header {
+  color:#330000;
+  background-color:#FFFFFF;
+  font-family:Verdana,Helvetica,sans-serif;
+  font-weight:bold;
+  font-size:17px;
+}
+
+.header:hover {
+  color:white;
+}
+
+.item {
+  color:#FFFFF;
+}

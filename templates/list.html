@@ -1,0 +1,88 @@
+<table border="0" cellpadding="2" cellspacing="0">
+    {if:table_title}
+    <tr>
+	<td colspan="{cols}" align="center" class="header">
+	<table width="100%" cellpadding="0" cellspacing="0">
+	  <tr>
+	    <td align="center" class="header"> {table_title:h} </td>
+	    <td align="center" class="header"> &nbsp; </td>
+	    <td align="center" width="20px" class="header"> {help_link:h} </td>
+	  </tr>
+	</table>
+	</td>
+    </tr>
+    {end:}
+    <tr>
+      <td>
+	<table border="1" cellpadding="2" cellspacing="0" width="100%">
+	  <tr>
+	    <td align="left" class="header" foreach="titles,title">
+	      {title:h}
+	    </td>
+	  </tr>	
+	  
+	  {if:nonefound}
+	  <tr class="item">
+	    <td align="center" colspan="<?= count($titles) ?>">
+	      <b><i><font color="red">No records matched.</font></i></b>
+	    </td>
+	  </tr>
+	  {end:}
+	  <tr foreach="values,rowid,cols">
+
+	    {foreach:cols,class,value}
+	    <td class="item" align="left">
+	      {value:h}
+	    </td>
+	    {end:}
+
+	    {if:rightblock}
+	    {if:isFirst()}
+	    <td  class="item" valign="top" align="left" rowspan="999">
+	      <table>
+		<tr foreach="rightblock,r">
+		  <td>{r:h}</td>
+		</tr>
+	      </table>
+	    </td>
+	    {end:}
+	    {end:}
+
+	  </tr>
+	</table>
+      </td>
+    </tr>
+</table>
+
+{if:creationTitle}
+<br>
+<br>
+      <table border="0" cellpadding="2" cellspacing="0">
+        <tr>
+          <td colspan="9" class="header" align="center">
+	    <table width="100%" cellpadding="0" cellspacing="0">
+	      <tr>
+		<td align="center" class="header">{creationTitle:h}</td>
+		<td align="center" width="20px" class="item">{help_link:h}</td>
+	      </tr>
+	    </table>
+          </td>
+	</tr>
+	<tr>
+	  <td>	
+	    <table border="1" cellpadding="2" cellspacing="0">
+	      <tr>
+		<td align="left" class="header" foreach="creationRow,fieldname,value">
+		  {fieldname:h}
+		</td>
+	      </tr>	
+	      <tr>
+		<td class="item" align="left" foreach="creationRow,fieldname,value">
+		  {value:h}
+		</td>
+	      </tr>
+	    </table>
+	  </td>
+	</tr>
+      </table>
+{end:}

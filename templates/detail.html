@@ -1,0 +1,102 @@
+{if:t.clearCode}
+ {clearCode:h} 
+{end:}
+
+{if:t.arbCode}
+ {arbCode:h}
+{end:}
+
+<table border="0" cellpadding="2" cellspacing="0" align="left">
+    {if:table_title}
+    <tr>
+	<td colspan=2 class="header">
+	<table width="100%" cellpadding="0" cellspacing="0">
+	  <tr>
+	    <td align="center" class="header"> {table_title:h} </td>
+	    <td align="center" class="header"> &nbsp; </td>
+	    <td align="center" width="20px" class="header"> {help_link:h} </td>
+	  </tr>
+	</table>
+	</td>
+    </tr>
+    {end:}
+    
+    {if:valueString}
+	<tr><td class="item" colspan="2">
+	    {valueString:h}
+	</td></tr>
+    {else:}
+        <tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>{key:h} : &nbsp; </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr>{value:h}</nobr></td>
+        </tr>
+    {end:}
+
+    {if:actions}
+    <tr>
+      <td class="item"></td>
+      <td class="item"></td>
+    </tr>
+    <tr >
+      <td colspan="2" class="item">
+        <table width="100%" align="center">
+	  <tr>
+	    <td align="center"> 	      {foreach:actions,key}
+	        {key:h}
+	      {end:}
+      	    </td>
+	  </tr>
+        </table>
+      </td>
+    </tr>
+    {end:}
+
+    <tr>
+      <td class="item"></td>
+      <td class="item"></td>
+    </tr>
+    {if:editable}
+    <tr>
+      <td colspan="2" class="item" >
+
+	<table width="100%" cellspacing="0" cellpadding="0">
+	  <tr>
+	    <td align="left" class="item"> 
+	      {if:findLimit} {findLimit:h} {end:} 
+	    </td>
+	    <td align="right" class="item"> 
+	      <i>Required fields are in <font color="red">red</font> </i>
+	    </td>
+	  </tr>
+	</table>
+
+      </td>
+    </tr>
+    {end:}
+    {if:lastModUserName}
+    <tr>
+      <td class="item">
+      </td>
+      <td class="item" align="right">
+	  <font size="-2">
+	    Last changed {lastModDateTime:h} by {lastModUserName:h}
+	  </font>
+      </td>
+    </tr>
+    {end:}
+    {if:created}
+    <tr>
+      <td class="item">
+      </td>
+      <td class="item" align="right">
+	  <font size="-2">
+	    Created {created:h}
+	  </font>
+      </td>
+    </tr>
+    {end:}
+
+</table>
+

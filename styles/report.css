@@ -1,0 +1,274 @@
+body {
+  font-family:Geneva,Arial,Helvetica,sans-serif;
+  font-size:16px;
+  background-color:white
+  color:black;
+}
+
+html {
+  scrollbar-base-color:#666699;
+  scrollbar-arrow-color:#ddddff;
+}
+
+pre { 
+  font-family: "monospace";
+}
+
+.number {
+  text-align:right;
+  background-color:white;
+}
+
+.money { 
+  text-align:right;
+  background-color:#99ff99;
+}
+
+.total {
+  background-color:#99ff99;
+  color:black;
+  text-align:right;
+  font-weight:bold;
+}
+
+.subtotal {
+  color:black;
+  text-align:right;
+  font-weight:bold;
+}
+
+form {
+  margin:0px;
+}
+
+a {
+  color:#333399;
+  text-decoration:none;
+}
+
+a:hover {
+  color:blue;
+  text-decoration:underline;
+}
+
+a.menuitem {
+  color:#eeeeff;
+  font-family:Verdana,Helvetica,sans-serif;
+  font-size:11px;
+  font-weight:normal;
+}
+
+a.menuitem:hover {
+  color:yellow;
+}
+
+a.helpitem {
+  color:#cccccc;
+  font-family:Verdana,Helvetica,sans-serif;
+  font-size:12px;
+  font-weight:normal;
+}
+
+a.helpitem:hover {
+  color:yellow;
+}
+
+a.widget {
+  color:#222244;
+  font-family:Verdana,Helvetica,sans-serif;
+  font-size:11px;
+}
+
+a.widget:hover {
+  color:blue;
+  background-color:#e9e9e9;
+}
+
+.outline {
+  background-color:black;
+}
+
+.menu {
+  color:white;
+  background-color:#444466;
+  font-family:Verdana,Helvetica,sans-serif;
+}
+
+.header {
+  color:#ccccee;
+  background-color:#444466;
+  font-family:Verdana,Helvetica,sans-serif;
+  font-weight:bold;
+  font-size:17px;
+}
+
+.header:hover {
+  color:white;
+}
+
+.light {
+  color:white;
+  font-family:Geneva,Arial,Helvetica,sans-serif;
+  font-size:12px;
+}
+
+.smallheader {
+  color:#ccccee;
+  background-color:#444466;
+  font-family:Geneva,Arial,Helvetica,sans-serif;
+  font-size:12px;
+}
+
+.smallheader:hover {
+  color:white;
+}
+
+.small {
+  color:#aaaacc;
+  font-family:Geneva,Arial,Helvetica,sans-serif;
+  font-size:11px;
+}
+
+.legend {
+  color:#000000;
+  font-family:Geneva,Arial,Helvetica,sans-serif;
+  font-size:11px;
+}
+
+.control {
+  color:black;
+  background-color:#669999;
+}
+
+.item {
+  color:black;
+  background-color:#e9e9e9;
+}
+
+.itemheader {
+  background-color:#cccccc;
+  color:#444466;
+  font-weight:bold;
+  font-family:Geneva,Arial,Helvetica,sans-serif;
+  font-size:12px;
+}
+
+.button{
+  color:white;
+  background-color:#666699;
+  border-bottom:thin solid #222244;
+  border-right:thin solid #222244;
+  border-top:thin solid #9999cc;
+  border-left:thin solid #9999cc;
+  font-size:11px;font-family:Verdana,Helvetica,sans-serif;
+  font-weight:normal;
+}
+
+.selected {
+  background-color:#bbcbff;
+}
+
+.text {
+  color:black;
+  background-color:white;
+}
+
+.item0 {
+  background-color:#f3f3f3;
+}
+
+.item1 {
+  background-color:#ccffff;
+}
+
+.hotitem {
+  foreground-color:#bbcbff;
+}
+
+.smallhot {
+  color:yellow;
+  background-color:#444466;
+  font-family:Geneva,Arial,Helvetica,sans-serif;
+  font-size:12px;
+}
+
+.fixed {
+  font-size:13px;
+  font-family:monospace, fixed;
+}
+
+td {
+  font-size:12px;
+  font-family:Geneva,Arial,Helvetica,sans-serif;
+}
+
+th {
+  font-size:12px;
+  font-family:Geneva,Arial,Helvetica,sans-serif;
+}
+
+.list {
+  background-color:#f0f0ff;
+}
+
+.listlt {
+  background-color:#ffffff;
+}
+
+option {
+  font-size:12px;
+}
+
+select {
+  font-size:12px;
+}
+
+.error {
+   color:black;
+   background-color:#ff9900;
+   font-family:Verdana,Helvetica,sans-serif;
+   font-size:12px;
+}
+
+.warning {
+   background-color:yellow;
+   color:black;
+   font-size:12px;
+}
+
+.message {
+   color:black;
+   background-color:#e9e9e9;
+   font-size:12px;
+}
+
+.red {
+  color:white;
+  background-color:red;
+}
+
+.yellow {
+  color:black;
+  background-color:yellow;
+}
+
+.label { 
+  font-weight: bold;
+  text-align: right;
+}
+
+.value { 
+  font-weight: normal;
+  text-align: right;
+}
+
+.value2 { 
+  font-weight: bold;
+  text-align: right;
+}
+
+.valuebox { 
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 0.1em;
+}

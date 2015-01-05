@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+<SCRIPT TYPE="text/javascript">
+<!--
+window.focus();
+//-->
+</SCRIPT>
+
+    <title><?= $topic ?></title>
+
+    <link href="../styles/style.css" rel="stylesheet" type="text/css" />
+    
+    <body>
+
+      <table width="100%" cellpadding="2">
+	  <tr> 
+	    <td class="header" valign="top">
+	      <?= $topic ?>
+	    </td>
+	    <td  align="right">
+	      <a href="HelpContents.php?topic=-" class="button"> Contents </a>
+	      &nbsp;
+	      <a href="#" onClick="return window.close();" 
+		 class="button"> Close </a>
+	    </td>
+
+	  <tr>
+	    <td colspan="2"><hr></td>
+	  </tr>
+
+	  <tr>
+	    <td colspan="2" class="light" align="left" >
+	      <?= $text ?>
+	    </td>
+	  </tr>
+
+	  <tr> 
+	    <td colspan="2" align="right">
+	      <hr>
+	      <a href="HelpContents.php?topic=-" class="button"> Contents </a>
+	      &nbsp;
+	      <a href="#" onClick="return window.close();" 
+		 class="button"> Close </a>
+	    </td>
+	  </tr>
+      </table>
+      
+    </body>
+</html>

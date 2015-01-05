@@ -1,0 +1,30 @@
+<center>
+<p><p>
+<font color="yellow">
+Reservation System Version <?= $version ?>
+</font>
+</center>
+
+<table align="center" width="80%"><tr><td>
+<font color="white">
+
+<p>Welcome, <?= $xauth->getUsername() ?>. 
+   You have <?= $session_data['groupName'] ?> privileges.
+   This session will expire in <?= $xauth->idle ?> seconds.<br>
+<?php
+if ('on' == @$_SERVER['HTTPS']) {
+  echo 'This is a secure connection.';
+}
+else {
+  echo '<br>' ; 
+  MNP::warning('This is an insecure connection');
+}
+?>
+	  </p>
+
+<p>
+<pre>
+<?= $str ?>
+</pre>
+</font>
+</td></tr></table>

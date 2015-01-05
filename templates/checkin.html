@@ -1,0 +1,69 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+  function viewRes(id, action, page)
+  {
+    document.agentmain.action = page;
+    document.agentmain.actionName.value = action;
+    document.agentmain.actionId.value = id;
+    document.agentmain.submit();
+  }
+
+  function resAction(action, page)
+  {
+    if (document.agentmain.editId.length == null) {   //only one option 
+       if (document.agentmain.editId.checked) {
+         return viewRes(document.agentmain.editId.value, action, page);
+       }
+    }
+    else {				      //multiple options
+      for (i = 0; i < document.agentmain.editId.length ; i++) {
+    	if (document.agentmain.editId[i].checked) {
+    	  return viewRes(document.agentmain.editId[i].value, action, page);
+        }       
+       }
+    }
+    alert("Please select a reservation by checking one of the buttons in the 'Select' column.");
+  }
+//-->
+</script>
+
+<table>
+
+    <tr>
+      <td colspan="3">
+	<table width="100%" cellspacing="6">
+	  <tr>
+	    <td class="header">
+	      For Date: {datebutton:h} {ciaction:h} {tcaction:h} {rlaction:h} 
+	    </td>
+
+<!--
+	  </tr>
+	  <tr> 
+-->
+
+	    <td colspan="3" class="header">
+	      Checkin Last Name: {quickcheckin:h}
+	    </td>
+	  </tr>
+	</table>
+      </td>
+    </tr>
+
+    <tr>
+      <td valign="top">
+	{today:h}
+      </td>
+      <td valign="top">
+	{tomorrow:h}
+      </td>
+      <td valign="top">
+	{walkup:h}
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" colspan="3">
+	{reservations:h}
+      </td>
+    </tr>
+</table>

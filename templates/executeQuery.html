@@ -1,0 +1,35 @@
+<hr noshade size="1" />
+
+<h2>{title}</h2>
+<h3>{description} - Reported {date}</h3>
+
+{if:okay}
+    <table>
+      <tr >
+	<th style="border-bottom: thin solid black">&nbsp;</th>
+        <th style="border-bottom: thin solid black" flexy:foreach="titles,title" align="right">
+          {title:h}
+        </th>
+      </tr>
+      <tr flexy:foreach="values,row">
+	<th>&nbsp;</th>
+        <td flexy:foreach="row,key,value" align="right">
+          {value:h}
+        </td>
+      </tr>
+
+      {if:totals}
+      <tr style="border-top: 1px solid black" >
+	<th style="border-top: thin solid black">Total</th>
+        <th style="border-top: thin solid black"flexy:foreach="totals,total" align="right">
+	     {total:h}
+        </th>
+      </tr>
+      {end:}
+
+    </table>
+{else:}
+    <font color="red"><i>No records matched.</i></font>
+{end:}
+  
+<hr noshade size="1" />

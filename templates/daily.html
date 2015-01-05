@@ -1,0 +1,77 @@
+<!-- forget templating on this one -->
+
+<table class="item" width="100%">
+  <tr>
+    <th>      
+    </th>
+    <? 
+      // train column titles
+      foreach ($trains as $t) {
+        echo '<th>' . $t->$train . '</th>';
+      }      
+    ?>
+    <th>
+	Totals
+    </th>
+  </tr>
+
+  <?
+    // data rows - slice across objects
+    foreach ($trainCols as $t) {
+      echo '<tr>';
+      echo '<th>' . $t[$row]->rowTitles . '</th>';
+      foreach ($trains as $t) {
+        echo '<td>'
+	. 
+        . '</td>';
+      }
+      echo '</tr>';
+    }
+  ?>
+
+  <tr>
+    <th>Total Tickets</th>
+    <? 
+      foreach ($trainCols as $t) {
+        echo '<th>' . $t->totalTickets  . '</th>';
+      }
+    ?>
+    <th>Grand Total #</th>
+  </tr>
+
+  <tr>
+    <th>Total Receipts</th>
+    <? 
+      foreach ($trainCols as $t) {
+        echo '<th>' . $t->totalReceipts  . '</th>';
+      }
+    ?>
+    <th>Grand Total $</th>
+  </tr>
+
+</table>
+
+<br>
+
+<table class="item">
+    <tr>
+      <th>Receptive Customer</th>
+      <th>ART</th>
+      <th>AOW</th>
+      <th>CRT</th>
+      <th>COW</th>
+      <th>Total</th>
+      <th>Deposit</th>
+      <th>Due</th>
+    </tr>
+    <tr>
+      <td>somecust</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>45</td>
+      <td>88</td>
+      <td>77</td>
+      <td>66</td>
+    </tr>
+</table>

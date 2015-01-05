@@ -1,0 +1,1 @@
+<?php define('ADMIN_VERSION', '$Id: version.php,v 1.2 2003/01/16 06:51:52 mitch Exp $');  ?>

@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html><head><title>Train Accounting</title>
+
+
+<link href="train-accounting_files/style.css" rel="stylesheet" type="text/css"></head>
+
+<body>
+
+<table border="1" bordercolor="yellow" bgcolor="gray"><tbody><tr><td><font color="white">
+</font><pre><font color="white">_POST: Array
+(
+)
+</font></pre></td></tr></tbody></table><script type="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+  if (! window.focus)return true;
+  var href;
+  if (typeof(mylink) == 'string')
+    href=mylink;
+  else
+    href=mylink.href;
+
+    href = href + '?topic=' + windowname;
+  window.open(href, windowname, 'width=450,height=200,resizable=yes,scrollbars=yes');
+  return false;
+}
+
+//-->
+</script>
+
+<script language="Javascript" src="train-accounting_files/calendar.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+function confirmSomething(thing)
+{
+  var yes=confirm("Really delete customer?  NOTE: This will also delete all reservations for this customer.  On the other hand, deleting a reservation will not affect its customer.");
+  return yes ? true : false; 
+}
+
+function resetForm()
+{
+  document.forms['TrainAccounting'].reset();
+}
+
+function submitAction(action, id, page)
+{
+  if (page) {
+    document.TrainAccounting.action = page;
+  }
+  document.TrainAccounting.actionName.value = action;
+  document.TrainAccounting.actionId.value = id;
+  document.TrainAccounting.submit();
+}
+
+function chooseAction()
+{
+  document.TrainAccounting.submit();
+}
+
+function increment(field)
+{
+  if (document.TrainAccounting.elements[field].disabled) {
+    return;
+  }
+
+  var n = parseInt(document.TrainAccounting.elements[field].value);
+  if (isNaN(n)) {
+    document.TrainAccounting.elements[field].value = 1;
+  }
+  else if (n >= 0) {
+    document.TrainAccounting.elements[field].value = n + 1;
+  }
+}
+
+function decrement(field)
+{
+  if (document.TrainAccounting.elements[field].disabled) {
+    return;
+  }
+
+  var n = parseInt(document.TrainAccounting.elements[field].value);
+  if (isNaN(n)) {
+    document.TrainAccounting.elements[field].value = 0;
+  }
+  else if (n >= 1) {
+    document.TrainAccounting.elements[field].value = n - 1;
+  }
+}
+
+function pasteTrain()
+{
+  var si1 = document.reservation.train1_run.selectedIndex;
+  if (si1 == 0) {
+    return;
+  }
+  if (si1 < (document.reservation.train1_run.options.length - 1)) {
+    document.reservation.train2_date.value = 
+      document.reservation.train1_date.value;
+    document.reservation.train2_run.selectedIndex = si1 + 1;
+  }
+  else {
+    alert("Sorry, if the outbound train is last one of the day, I'm not sure what to do here. Please fill in the return train.");
+  }
+}
+
+function disable(elem) { // elem: form element to be disabled
+  document.TrainAccounting.elements[elem].disabled = true;
+}
+
+function enable(elem) { // elem: form element to be reenabled
+  document.TrainAccounting.elements[elem].disabled = false;
+}
+
+//-->
+</script>
+
+<form method="post" name="TrainAccounting" enctype="multipart/form-data" action="#">
+<input type="hidden" name="actionId" value="">
+<input type="hidden" name="actionName" value="">
+
+
+ <script language="JavaScript" type="text/javascript">
+<!--
+
+function clearTrainAccounting () {document.TrainAccounting.adultBegTix.value = "";
+document.TrainAccounting.adultEndTix.value = "";
+document.TrainAccounting.childBegTix.value = "";
+document.TrainAccounting.childEndTix.value = "";
+document.TrainAccounting.groupBegTix.value = "";
+document.TrainAccounting.groupEndTix.value = "";
+document.TrainAccounting.lcsBegTix.value = "";
+document.TrainAccounting.lcsEndTix.value = "";
+document.TrainAccounting.aRT.value = "";
+document.TrainAccounting.aOW.value = "";
+document.TrainAccounting.aTRT.value = "";
+document.TrainAccounting.aTOW.value = "";
+document.TrainAccounting.cRT.value = "";
+document.TrainAccounting.cOW.value = "";
+document.TrainAccounting.cTRT.value = "";
+document.TrainAccounting.cTOW.value = "";
+document.TrainAccounting.oRT.value = "";
+document.TrainAccounting.oOW.value = "";
+}
+//-->
+</script> 
+
+ <script language="JavaScript" type="text/javascript">
+<!--
+
+
+	// put the bigger ticket number on top
+	function orderTicketPairs(begfield, endfield) {
+	  a = document.TrainAccounting.elements[begfield].value;
+	  b = document.TrainAccounting.elements[endfield].value;
+	  document.TrainAccounting.elements[begfield].value = Math.max(a, b);
+	  document.TrainAccounting.elements[endfield].value = Math.min(a, b);
+	}
+	
+//-->
+</script>
+<table border="0" cellpadding="2" cellspacing="0" align="left">
+        <tbody><tr>
+	<td colspan="2" class="header">
+	<table width="100%" cellpadding="0" cellspacing="0">
+	  <tbody><tr>
+	    <td align="center" class="header"> Accounting for Train : 2003-05-16 HC 09:45 am </td>
+	    <td align="center" class="header">   </td>
+	    <td align="center" width="20" class="header"> <a href="http://localhost/%7Emitch/Touristtrain/lib/HelpLoader.php" onclick="return popup(this, 'TrainAccounting')"><img border="0" src="train-accounting_files/help.png"></a> </td>
+	  </tr>
+	</tbody></table>
+	</td>
+    </tr>
+        
+            <tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Adult Beg Ticket # :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="12" name="adultBegTix" value="361922" tabindex="2" onchange="return orderTicketPairs('adultBegTix', 'adultEndTix');"><a href="javascript:increment('adultBegTix');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('adultBegTix');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Adult End Ticket # :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="12" name="adultEndTix" value="361957" tabindex="3" onchange="return orderTicketPairs('adultBegTix', 'adultEndTix');"><a href="javascript:increment('adultEndTix');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('adultEndTix');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Child Beg Ticket # :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="12" name="childBegTix" value="123173" tabindex="4" onchange="return orderTicketPairs('childBegTix', 'childEndTix');"><a href="javascript:increment('childBegTix');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('childBegTix');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Child End Ticket # :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="12" name="childEndTix" value="123177" tabindex="5" onchange="return orderTicketPairs('childBegTix', 'childEndTix');"><a href="javascript:increment('childEndTix');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('childEndTix');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Group Beg Ticket # :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="12" name="groupBegTix" value="35448" tabindex="6" onchange="return orderTicketPairs('groupBegTix', 'groupEndTix');"><a href="javascript:increment('groupBegTix');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('groupBegTix');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Group End Ticket # :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="12" name="groupEndTix" value="35291" tabindex="7" onchange="return orderTicketPairs('groupBegTix', 'groupEndTix');"><a href="javascript:increment('groupEndTix');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('groupEndTix');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>L/C/S Beg Ticket # :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="12" name="lcsBegTix" value="52055" tabindex="8" onchange="return orderTicketPairs('lcsBegTix', 'lcsEndTix');"><a href="javascript:increment('lcsBegTix');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('lcsBegTix');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>L/C/S End Ticket # :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="12" name="lcsEndTix" value="52065" tabindex="9" onchange="return orderTicketPairs('lcsBegTix', 'lcsEndTix');"><a href="javascript:increment('lcsEndTix');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('lcsEndTix');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Adult RT $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="aRT" value="630" tabindex="10"><a href="javascript:increment('aRT');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('aRT');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Adult OW $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="aOW" value="0" tabindex="11"><a href="javascript:increment('aOW');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('aOW');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Tour Adult RT $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="aTRT" value="0" tabindex="12"><a href="javascript:increment('aTRT');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('aTRT');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Tour Adult OW $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="aTOW" value="0" tabindex="13"><a href="javascript:increment('aTOW');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('aTOW');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Child RT $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="cRT" value="40" tabindex="14"><a href="javascript:increment('cRT');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('cRT');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Child OW $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="cOW" value="0" tabindex="15"><a href="javascript:increment('cOW');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('cOW');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Child Tour RT $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="cTRT" value="0" tabindex="16"><a href="javascript:increment('cTRT');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('cTRT');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Child Tour OW $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="cTOW" value="0" tabindex="17"><a href="javascript:increment('cTOW');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('cTOW');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Special RT $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="oRT" value="723" tabindex="18"><a href="javascript:increment('oRT');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('oRT');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr><tr foreach="items,key,value">
+          <td class="item" valign="top" align="right">
+    	<b><nobr>Special OW $ :   </nobr></b>
+          </td>
+          <td class="item" align="left" valign="top"><nobr></nobr><nobr><input type="text" style="text-align: right;" size="8" name="oOW" value="0" tabindex="19"><a href="javascript:increment('oOW');"><img border="0" src="train-accounting_files/plus.png"></a><a href="javascript:decrement('oOW');"> <img border="0" src="train-accounting_files/minus.png"></a></nobr></td>
+        </tr>    
+        <tr>
+      <td class="item"></td>
+      <td class="item"></td>
+    </tr>
+    <tr>
+      <td colspan="2" class="item">
+        <table width="100%" align="center">
+	  <tbody><tr>
+	    <td align="center"> 	      	        <a class="button" href="javascript:submitAction('save', '', '');"> Save Changes and Close </a>	      	        <a class="button" href="javascript:clearTrainAccounting();">  Clear Form  </a>	            	    </td>
+	  </tr>
+        </tbody></table>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="item"></td>
+      <td class="item"></td>
+    </tr>
+        <tr>
+      <td colspan="2" class="item">
+
+	<table width="100%" cellspacing="0" cellpadding="0">
+	  <tbody><tr>
+	    <td align="left" class="item"> 
+	       
+	    </td>
+	    <td align="right" class="item"> 
+	      <i>Required fields are in <font color="red">red</font> </i>
+	    </td>
+	  </tr>
+	</tbody></table>
+
+      </td>
+    </tr>
+            
+</tbody></table>
+
+
+</form>
+<p></p>
+</body></html>
